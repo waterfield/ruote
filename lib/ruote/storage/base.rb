@@ -334,7 +334,7 @@ module Ruote
       at = if s.is_a?(Time) # at or every
         s
       elsif Ruote.cron_string?(s) # cron
-        Rufus::Scheduler::CronLine.new(s).next_time(Time.now + 1)
+        Rufus::CronLine.new(s).next_time(Time.now + 1)
       else # at or every
         Ruote.s_to_at(s)
       end
