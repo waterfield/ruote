@@ -187,7 +187,7 @@ module Ruote
       now = Time.now.utc
       delta = now - @last_time
 
-      return if delta < 0.8
+      return if delta < 10.0 # changed by RSM from 0.8  2017-02-07
         #
         # consider schedules at most twice per second (don't do that job
         # too often)
@@ -220,7 +220,7 @@ module Ruote
           collisions = 0
         end
 
-        break if Time.now.utc - @last_time >= 0.8
+        break if Time.now.utc - @last_time >= 10.0
       end
     end
 
@@ -699,4 +699,3 @@ module Ruote
     end
   end
 end
-
